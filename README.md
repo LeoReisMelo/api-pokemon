@@ -1,2 +1,5 @@
-# api-pokemon
-Consumindo a api pokeapi.co, para fazer uma listagem de pokemons, com paginação - utilizando React
+Criado utilizando create-react-app
+Consumindo a API pokeapi.co
+Listagem de pokemons com paginação
+npm i para instalar as dependências
+yarn start - para iniciar

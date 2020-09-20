@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+*{
+    margin:0;
+    padding:0;
+    outline:0;
+    box-sizing: border-box;
+}
+body{
+    font:400 14px Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    background-image: url("./assets/poke-wall.jpg");
+    background-repeat: no-repeat;
+}
+input,button,textarea{
+    font:400 14px Roboto,sans-serif;
+    margin-top:2%;
+}
+button{
+    cursor: pointer;
+}
+h1{
+    text-align: center;
+}

@@ -1,0 +1,19 @@
+.Name {
+    font-size: 2rem;
+    margin: 15px 0;
+}
+
+img {
+    max-height: 120px;
+}
+
+.Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    min-width: 300px;
+    min-height: 200px;
+    background-color: yellow;
+    margin-left: 20px;
+}
