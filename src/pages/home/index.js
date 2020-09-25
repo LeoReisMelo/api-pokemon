@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../../global.css";
 import "./styles.css";
-import logoPoke from "../../assets/logo-poke.png";
 import api from "../../services/api";
 
 import PokemonItem from "../../components/pokemonListItem";
@@ -10,7 +9,7 @@ export default function ListPokemon() {
   const remove = "https://pokeapi.co/api/v2/pokemon/";
 
   const [total, setTotal] = useState(0);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [pagesTotal, setPagesTotal] = useState(0);
   const [loading, setLoading] = useState(false);
   const [pokemons, setPokemons] = useState([]);
@@ -24,11 +23,11 @@ export default function ListPokemon() {
     }
 
     setLoading(true);
-    const response = await api.get(`pokemon/?limit=10&offset=${page * 10}`);
+    const response = await api.get(`pokemon/?limit=10&offset=${page*10}`);
 
     const resposta = response.data.results.map((item) => {
       const id = item.url.replace(remove, "").replace("/", "");
-      item.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${id}.svg`;
+      item.image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
       item.id = id;
 
       return item;
@@ -51,12 +50,12 @@ export default function ListPokemon() {
   }
 
   function setNextPage() {
-    if (page >= pagesTotal) return;
+    if (page >= pagesTotal-1) return;
     setPage(page + 1);
   }
 
   function setPreviusPage() {
-    if (page <= 1) return;
+    if (page <= 0) return;
     setPage(page - 1);
   }
 
@@ -67,8 +66,7 @@ export default function ListPokemon() {
   return (
     <div className="poke-container">
       <header>
-        <img className="logo-poke" src={logoPoke} alt="Logotipo pokemon" />
-        <h1>Bem-vindo a sua Pokedex!</h1>
+        <h1>Bem-vindo a sua pokedex!</h1>
       </header>
       <section className="section-poke">
         {pokemons.map((pokemon) => (
@@ -88,7 +86,7 @@ export default function ListPokemon() {
           {" "}
           PRÓXIMO{" "}
         </button>
-        <div className="pagination">{`Página ${page} de ${pagesTotal}`}</div>
+        <div className="pagination">{`Página ${page+1} de ${pagesTotal}`}</div>
       </div>
     </div>
   );

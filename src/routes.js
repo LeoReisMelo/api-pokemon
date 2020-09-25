@@ -1,11 +1,11 @@
 import React from 'react';
 import {Route, BrowserRouter} from 'react-router-dom';
-import Pokemon from './pages/pokemon';
+import ListPokemon from './pages/home';
 
 const Routes = () =>{
     return (
         <BrowserRouter>
-            <Route component={Pokemon} path="/" exact/>
+            <Route component={ListPokemon} path="/" exact/>
         </BrowserRouter>
     );
 }
